@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breeze Lux Website Flyer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0a0e14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- FLYER CONTAINER --- */
+        .flyer {
+            max-width: 1000px;
+            width: 100%;
+            background: linear-gradient(145deg, #0f172a 0%, #0a0e14 100%);
+            border-radius: 32px;
+            padding: 50px 45px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative elements */
+        .flyer::before {
+            content: '✦';
+            position: absolute;
+            font-size: 30rem;
+            opacity: 0.03;
+            right: -8rem;
+            bottom: -12rem;
+            color: #f59e0b;
+            animation: spin-slow 40s linear infinite;
+            pointer-events: none;
+        }
+
+        .flyer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(ellipse, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @keyframes spin-slow {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- HEADER --- */
+        .flyer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        }
+
+        .brand-text {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #f8fafc;
+            letter-spacing: 1px;
+        }
+
+        .brand-text span {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badge-premium {
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: #fbbf24;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* --- MAIN TITLE --- */
+        .flyer-title {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .flyer-title h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.15;
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .flyer-title h1 span {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .flyer-title .sub {
+            color: #94a3b8;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .flyer-title .sub i {
+            color: #10b981;
+            margin: 0 6px;
+        }
+
+        /* --- DIVIDER --- */
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #f59e0b);
+            margin: 16px auto 28px;
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- PRICING CARDS --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 30px 0 36px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 28px 24px 32px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(4px);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card.popular {
+            border-color: rgba(245, 158, 11, 0.3);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .pricing-card.popular::before {
+            content: '★ BEST VALUE';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #0a0e14;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .pricing-card .plan-name {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 6px;
+        }
+
+        .pricing-card .plan-desc {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .pricing-card .price {
+            font-size: 38px;
+            font-weight: 800;
+            color: #10b981;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .price small {
+            font-size: 14px;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        .pricing-card .price-note {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            text-align: left;
+            margin: 16px 0 24px;
+        }
+
+        .pricing-card .features li {
+            font-size: 13px;
+            color: #cbd5e1;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .pricing-card .features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .features li i {
+            color: #10b981;
+            font-size: 14px;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .features li .muted {
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-emerald {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-emerald:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #0a0e14;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #f8fafc;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-outline-light:hover {
+            border-color: #10b981;
+            color: #10b981;
+        }
+
+        /* --- BONUS / ADD-ONS --- */
+        .addons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 30px 0 36px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .addon-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .addon-item:hover {
+            border-color: rgba(16, 185, 129, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .addon-item .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(16, 185, 129, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #10b981;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .addon-item .info h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .addon-item .info p {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .addon-item .info .price-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        /* --- FOOTER --- */
+        .flyer-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .flyer-footer .contact {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .flyer-footer .contact a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flyer-footer .contact a:hover {
+            color: #10b981;
+        }
+
+        .flyer-footer .contact a i {
+            color: #10b981;
+        }
+
+        .flyer-footer .note {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .flyer-footer .note i {
+            color: #fbbf24;
+            margin-right: 4px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .flyer {
+                padding: 30px 24px 28px;
+            }
+            .flyer-title h1 {
+                font-size: 32px;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .addons {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .flyer {
+                padding: 24px 16px 20px;
+                border-radius: 20px;
+            }
+            .flyer-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .flyer-title h1 {
+                font-size: 26px;
+            }
+            .flyer-title .sub {
+                font-size: 12px;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .addons {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .pricing-card {
+                padding: 22px 18px 26px;
+            }
+            .pricing-card .price {
+                font-size: 32px;
+            }
+            .flyer-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .flyer-footer .contact {
+                justify-content: center;
+            }
+            .brand-text {
+                font-size: 20px;
+            }
+            .brand-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .flyer {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                page-break-after: avoid;
+            }
+            .flyer::before,
+            .flyer::after {
+                display: none;
+            }
+            .pricing-card:hover {
+                transform: none !important;
+            }
+            .btn-cta {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flyer">
+
+        <!-- HEADER -->
+        <div class="flyer-header">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-sparkles"></i></div>
+                <div class="brand-text">BREEZE <span>LUX</span></div>
+            </div>
+            <div class="badge-premium"><i class="fa-regular fa-gem"></i> Premium Web Solutions</div>
+        </div>
+
+        <!-- TITLE -->
+        <div class="flyer-title">
+            <h1>Website-in-a-Box <span>Pricing</span></h1>
+            <div class="sub"><i class="fa-regular fa-star"></i> Premium Template + Full Setup for Kenyan Businesses <i class="fa-regular fa-star"></i></div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- PRICING CARDS -->
+        <div class="pricing-grid">
+
+            <!-- BASIC -->
+            <div class="pricing-card">
+                <div class="plan-name">Basic Setup</div>
+                <div class="plan-desc">Template + Customization</div>
+                <div class="price">KSh 35,000 <small>/ one-time</small></div>
+                <div class="price-note">You arrange hosting &amp; domain</div>
+                <ul class="features">
+                    <li><i class="fa-regular fa-circle-check"></i> Premium HTML/CSS/JS template</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Full content customization</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Dark / White mode toggle</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Responsive &amp; mobile-optimized</li>
+                    <li><i class="fa-regular fa-circle-check"></i> 1 month basic support</li>
+                    <li><i class="fa-regular fa-circle-check"></i> <span class="muted">Hosting &amp; domain not included</span></li>
+                </ul>
+                <a href="#" class="btn-cta btn-outline-light">Choose Plan</a>
+            </div>
+
+            <!-- FULL PACKAGE (POPULAR) -->
+            <div class="pricing-card popular">
+                <div class="plan-name">Full Package</div>
+                <div class="plan-desc">Everything you need to launch</div>
+                <div class="price">KSh 65,000 <small>/ one-time</small></div>
+                <div class="price-note">Includes hosting &amp; domain setup</div>
+                <ul class="features">
+                    <li><i class="fa-regular fa-circle-check"></i> Everything in Basic Setup</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Domain registration (<strong>.co.ke</strong>)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> 1 year premium hosting</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Content integration (text + images)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> WhatsApp &amp; contact forms setup</li>
+                    <li><i class="fa-regular fa-circle-check"></i> <strong>3 months</strong> priority support</li>
+                </ul>
+                <a href="#" class="btn-cta btn-gold">Choose Plan</a>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="pricing-card">
+                <div class="plan-name">Premium +</div>
+                <div class="plan-desc">Custom features &amp; integrations</div>
+                <div class="price">KSh 85,000 <small>/ one-time</small></div>
+                <div class="price-note">Tailored for your business needs</div>
+                <ul class="features">
+                    <li><i class="fa-regular fa-circle-check"></i> Everything in Full Package</li>
+                    <li><i class="fa-regular fa-circle-check"></i> <strong>M-Pesa</strong> payment integration</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Advanced booking / enquiry forms</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Google Maps &amp; location setup</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Social media integration</li>
+                    <li><i class="fa-regular fa-circle-check"></i> <strong>6 months</strong> priority support</li>
+                </ul>
+                <a href="#" class="btn-cta btn-emerald">Choose Plan</a>
+            </div>
+
+        </div>
+
+        <!-- ADD-ONS / EXTRAS -->
+        <div class="addons">
+            <div class="addon-item">
+                <div class="icon"><i class="fa-regular fa-pen-to-square"></i></div>
+                <div class="info">
+                    <h4>Content Writing</h4>
+                    <p>Professional copywriting for 5 pages</p>
+                    <span class="price-tag">+ KSh 8,000</span>
+                </div>
+            </div>
+            <div class="addon-item">
+                <div class="icon"><i class="fa-regular fa-camera"></i></div>
+                <div class="info">
+                    <h4>Photo Package</h4>
+                    <p>10 high-quality stock images curated</p>
+                    <span class="price-tag">+ KSh 5,000</span>
+                </div>
+            </div>
+            <div class="addon-item">
+                <div class="icon"><i class="fa-regular fa-circle-check"></i></div>
+                <div class="info">
+                    <h4>SEO Setup</h4>
+                    <p>Meta tags, structured data, sitemap</p>
+                    <span class="price-tag">+ KSh 7,000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="flyer-footer">
+            <div class="contact">
+                <a href="tel:+254700000000"><i class="fa-solid fa-phone"></i> +254 700 000 000</a>
+                <a href="mailto:info@breezelux.co.ke"><i class="fa-regular fa-envelope"></i> info@breezelux.co.ke</a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="note">
+                <i class="fa-regular fa-star"></i> Prices valid for 2026 &bull; All rates in KES
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
